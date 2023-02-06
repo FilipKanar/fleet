@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:fleet/view/screens/company/company_screen.dart';
+import 'package:fleet/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -20,13 +22,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var providers = [EmailAuthProvider()];
-
+    var authenticationProviders = [EmailAuthProvider()];
     return MaterialApp(
       initialRoute: FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/home',
       routes: {
         '/sign-in' : (context) => SignInScreen(
-          providers: providers,
+          providers: authenticationProviders,
           actions: [
             AuthStateChangeAction<SignedIn>((context, _) {
               Navigator.of(context).pushReplacementNamed('/home');
@@ -34,8 +35,10 @@ class MyApp extends StatelessWidget {
           ],
         ),
         '/profile' : (context) => ProfileScreen(
-          providers: providers,
+          providers: authenticationProviders,
         ),
+        '/company': (context) => const CompanyScreen(),
+        '/home': (context) => const HomeScreen(),
       },
     );
   }

@@ -40,7 +40,10 @@ dependencies:
   firebase_ui_auth: ^1.1.9
 
   firebase_core: ^2.4.1
-  firebase_auth: : ^2.4.1
+  equatable: ^2.0.5
+  flutter_bloc: ^8.1.1
+  rxdart: ^0.27.7
+  multiple_stream_builder: ^3.0.2
 
 dev_dependencies:
   flutter_test:
