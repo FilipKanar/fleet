@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
+import 'package:fleet/firebase_options.dart';
 import 'package:fleet/view/screens/company/company_screen.dart';
 import 'package:fleet/view/screens/home_screen.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   FirebaseUIAuth.configureProviders(
       [
         EmailAuthProvider(),
