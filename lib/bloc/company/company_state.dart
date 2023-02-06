@@ -8,3 +8,10 @@ class InitialCompanyState extends CompanyState{
   List<Object?> get props => [];
 
 }
+
+class ErrorCompanyState extends CompanyState{
+  final String error;
+  ErrorCompanyState({required this.error});
+  @override
+  List<Object?> get props => [];
+}

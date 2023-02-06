@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:fleet/view/screens/company/add_company/add_company.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../data/api/db/firestore_service.dart';
+
 class CompanyScreen extends StatelessWidget {
   const CompanyScreen({Key? key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class CompanyScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          BlocProvider(create: (context) => CompanyBloc(), child: AddCompany(),),
+          BlocProvider(create: (context) => CompanyBloc(databaseService: FirestoreDatabaseService()), child: AddCompany(),),
         ],
       ),
     );
